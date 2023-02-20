@@ -1,40 +1,75 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import Repo from "../components/Repo";
 
 
-const Repos = () => {
-const{username} = useParams();
+import { AiOutlineStar, AiOutlineFork } from "react-icons/ai";
+import { BsCodeSlash } from "react-icons/bs";
 
-const [repo, setRepo] = useState([])
-
-useEffect(() => {
-  const loadrepos = async function (username){
+import classes from "./Repos.module.css";
 
 
-    const res = await fetch(`https://api.github.com/users/${username}/repos`);
+function ListaDeRepositorios() {
+  const { username } = useParams();
+  const [repositorio, setRepositorio] = useState([]);
 
-   setRepo(await res.json())
-
-    console.log(res)
-
-    
-  }
- loadrepos(username)
-},{
+  useEffect(() => {
+    async function carregaRepositorios(username) {
 
 
-})
+      const res = await fetch(`https://api.github.com/users/${username}/repos`)
+
+      const repositorios = await res.json()
+
+      setRepositorio(repositorios)
+
+    }
+    carregaRepositorios(username);
+  }, [])
 
 
 
   return (
-    <div >
-      <h2>Repositorios do usuário: {username}</h2>
-     
-    </div>
-    
-  )
+    <>
+      <div className={classes.repos}>
+        <h2>Repositórios do usuário {username}</h2>
+        <div className={classes.repos_container}>
+          {repositorio.map(repositorio => (
+            <h3 key={repositorio.id}>
+              <div className={classes.tag}>
+                <div>
+                  {repositorio.name}
+                  <p><BsCodeSlash />{repositorio.language}</p>
+                </div>
+
+                <div>
+                  <p>{repositorio.description}</p>
+                </div>
+                <div className={classes.stats}>
+                  <div>
+                    <AiOutlineStar />
+                    <span>{repositorio.stargazers_count}</span>
+                  </div>
+                  <div>
+                    <AiOutlineFork />
+                    <span>{repositorio.forks_count}</span>
+                  </div>
+                  
+                </div>
+                <a href={repositorio.html_url} target="_blank" className={classes.repo_btn}>
+                    <span>Ver código</span>
+                    
+                  </a>
+              </div>
+
+
+            </h3>
+          ))}
+        </div>
+
+        <p></p>
+      </div>
+    </>
+  );
 }
 
-export default Repos
+export default ListaDeRepositorios
