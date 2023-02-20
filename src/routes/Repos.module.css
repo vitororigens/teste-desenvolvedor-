@@ -14,7 +14,7 @@
     align-items: center;
     flex-wrap: wrap;
     flex-direction: column;
-    gap: 2rem;
+
 
   }
 
@@ -24,7 +24,9 @@
 
 
   .repos_container .tag{
+    width: 100%;
     border: 1px solid #fff;
+    padding: 1rem;
   }
 
 
@@ -32,6 +34,7 @@
     display: flex;
     gap: 1rem;
     align-items: center;
+    justify-content: center;
   }
   
   .stats div {
@@ -49,6 +52,13 @@
     padding: 0.2rem 0.4rem;
     border-radius: 3px;
     font-size: 2rem;
+  }
+
+  .repos_container a{
+    margin-bottom: 1rem;
+    background-color: #4ed8c7;
+    border-radius: 0.4rem;
+    padding: 0.4rem;
   }
 
   
