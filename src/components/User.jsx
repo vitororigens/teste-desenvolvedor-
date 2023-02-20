@@ -11,7 +11,7 @@ const User  = ({
     bio,
     followers, 
     following, 
-    location
+    location,
 }) => {
   return (
     <div className={classes.user}>
@@ -35,7 +35,7 @@ const User  = ({
                 <p className={classes.number}>{following}</p>
             </div>
         </div>
-        <Link to={`/Repos`}>Ver melhores projetos</Link>
+        <Link to={`/Repos/${login}`}>Ver melhores projetos</Link>
     </div>
   )
 }
