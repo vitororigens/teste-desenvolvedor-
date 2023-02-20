@@ -31,7 +31,7 @@ function ListaDeRepositorios() {
   return (
     <>
       <div className={classes.repos}>
-        <h2>Repositórios do usuário {username}</h2>
+        <h2>Repositório do usuário {username}</h2>
         {repositorio && repositorio.length === 0 && <p>usuário não tem repositório</p>}
         <div className={classes.repos_container}>
           {repositorio.map(repositorio => (

@@ -41,7 +41,7 @@ const Home = () => {
     return <div>
                 <Search loadUser={loadUser} />
                 {user && <User {...user}/>}
-                {error && <Error />}
+                {error && <Erro />}
 
             </div>;
             
