@@ -35,35 +35,34 @@ function ListaDeRepositorios() {
         {repositorio && repositorio.length === 0 && <p>usuário não tem repositório</p>}
         <div className={classes.repos_container}>
           {repositorio.map(repositorio => (
-            <h3 key={repositorio.id}>
-              <div className={classes.tag}>
-                <div>
-                  {repositorio.name}
-                  <p><BsCodeSlash />{repositorio.language}</p>
-                </div>
 
-                <div>
-                  <p>{repositorio.description}</p>
-                </div>
-                <div className={classes.stats}>
-                  <div>
-                    <AiOutlineStar />
-                    <span>{repositorio.stargazers_count}</span>
-                  </div>
-                  <div>
-                    <AiOutlineFork />
-                    <span>{repositorio.forks_count}</span>
-                  </div>
-                  
-                </div>
-                <a href={repositorio.html_url} target="_blank" className={classes.repo_btn}>
-                    <span>Ver código</span>
-                    
-                  </a>
+            <div className={classes.tag} key={repositorio.id}>
+              <div>
+                {repositorio.name}
+                <p><BsCodeSlash />{repositorio.language}</p>
               </div>
 
+              <div>
+                <p>{repositorio.description}</p>
+              </div>
+              <div className={classes.stats}>
+                <div>
+                  <AiOutlineStar />
+                  <span>{repositorio.stargazers_count}</span>
+                </div>
+                <div>
+                  <AiOutlineFork />
+                  <span>{repositorio.forks_count}</span>
+                </div>
 
-            </h3>
+              </div>
+              <a href={repositorio.html_url} target="_blank" className={classes.repo_btn}>
+                <span>Ver código</span>
+
+              </a>
+            </div>
+
+
           ))}
         </div>
 

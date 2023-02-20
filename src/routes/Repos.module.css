@@ -1,3 +1,5 @@
+
+
 .repos h2 {
     font-size: 1.2rem;
     text-align: center;
@@ -8,10 +10,8 @@
     
     text-align: center;
     background-color: #2b3566;
-    padding: 2rem;
     border-radius: 1rem;
     display: flex;
-    align-items: center;
     flex-wrap: wrap;
     flex-direction: column;
 
@@ -24,7 +24,6 @@
 
 
   .repos_container .tag{
-    width: 100%;
     border: 1px solid #fff;
     padding: 1rem;
   }
